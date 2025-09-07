@@ -122,7 +122,7 @@ export default function Services() {
             {/* Hosting & Mintenance Section */}
             <div className='rounded-2xl border border-slate-400 p-6 shadow-lg mt-10'>
                 <div className='flex items-center justify-between mb-4'>
-                    <h3 className='text-xl font-semibold'>
+                    <h3 className='text-2xl font-bold'>
                         Hosting & Maintenance Plans
                     </h3>
                     {/* Toggle Slider*/}

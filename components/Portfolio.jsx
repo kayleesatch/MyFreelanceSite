@@ -15,7 +15,7 @@ const projects = [
     },
     {
         title: "My Portfolio",
-        description: "For seeing other projects i have made.",
+        description: "For seeing other projects I have made.",
         image: "/PortfolioSiteImg.png",
         link: "https://kaylynn-portfolio.vercel.app",
     },
