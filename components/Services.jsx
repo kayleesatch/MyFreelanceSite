@@ -31,7 +31,7 @@ const hostingPlans = {
         {
             tier: "Hobby",
             price: 15,
-            description: "Affordable hosting for personal projects or small sites.",
+            description: "Affordable hosting for personal projects or small sites. Minimal maintenance.",
             checkoutLink: "https://buy.stripe.com/bJe4gz3n98Fy5hxbYz00007",
         },
         {
@@ -54,6 +54,12 @@ const hostingPlans = {
         },
     ],
     yearly: [
+        {
+            tier: "Hobby",
+            price: 150,
+            description: "Save with annual billing. Affordable hosting for personal projects or small sites. Minimal maintenance.",
+            checkoutLink: "https://buy.stripe.com/14A14n2j50926lB5Ab0000e"
+        },
         {
             tier: "Basic",
             price: 500,
@@ -81,7 +87,8 @@ export default function Services() {
 
     return (
         <section id="services" className="max-w-7xl mx-auto p-6">
-            <h2 className="text-3xl font-bold mb-6">Website Packages</h2>
+            <h2 className="text-3xl font-bold mb-2">Website Packages</h2>
+            <h3 className="text-xl font-semibold mb-6 text-slate-500">(One Time Payment)</h3>
             <div className="grid md:grid-cols-3 gap-6">
                 {packages.map((pkg, idx) => (
                     <div key={idx} className="rounded-2xl border border-slate-400 p-6 shadow-xl hover:shadow-lg transition">
