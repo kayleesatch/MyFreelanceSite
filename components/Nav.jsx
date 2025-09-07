@@ -14,7 +14,7 @@ export default function Nav() {
             <div className="space-x-4 flex items-center">
                 <a 
                     onClick={() => setOpen(true)}
-                    className=" px-4 py-2 rounded-xl hover:text-slate-400 hover:underline text-lg font-semibold cursor-pointer"
+                    className=" px-4 py-2 rounded-xl hover:text-purple-600 hover:underline text-lg font-semibold cursor-pointer"
                 >
                     Contact Me
                 </a>
