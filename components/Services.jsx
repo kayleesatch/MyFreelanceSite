@@ -1,6 +1,7 @@
 import { useState } from "react";
 import PaymentButton from "./PaymentButton";
 import TermsOfService from "./TermsOfService";
+import LearnMoreModal from "./LearnMoreModal";
 
 const packages = [
     {
@@ -8,6 +9,7 @@ const packages = [
         price: 300,
         description: "Single-page or simple multi-section site. Perfect for small businesses.",
         includes: ["Responsive design", "Contact form", "Basic SEO", "1 week support"],
+        details: "This package is best for small businesses who need a professional online presence fast. Includes 1-2 revisions and lightweight setup.",
         checkoutLink: 'https://buy.stripe.com/00wbJ11f17Bu39p0fR00004'
     },
     {
@@ -15,6 +17,7 @@ const packages = [
         price: 800,
         description: "Multi-page website with more features. Ideal for growing businesses.",
         includes: ["Up to 5 pages", "Custom design", "Enhanced SEO", "2 weeks support"],
+        details: "A more complete solution for businesses that need multiple pages, stronger SEO, and custom styling. Includes 3 revisions.",
         checkoutLink: "https://buy.stripe.com/eVqdR98Ht092dO32nZ00005"
     },
     {
@@ -22,6 +25,7 @@ const packages = [
         price: 1500,
         description: "Full-featured website with advanced customizations. Best for larger businesses.",
         includes: ["Unlimited pages", "Advanced features", "SEO optimization", "1 month support"],
+        details: "For businesses that need a fully customized funtionality, unlimited pages, and ongoing consultation. Includes unlimited revisions during build.",
         checkoutLink: "https://buy.stripe.com/28E5kD7Dp4pifWb3s300006"
     },
 ];
@@ -84,6 +88,7 @@ const hostingPlans = {
 export default function Services() {
     const [billing, setBilling] = useState("monthly");
     const [showTerms, setShowTerms] = useState(false);
+    const [selectedPackage, setSelectedPackage] = useState(null);
 
     return (
         <section id="services" className="max-w-7xl mx-auto p-6">
@@ -99,12 +104,19 @@ export default function Services() {
                                 <li key={i}>{item}</li>
                             ))}
                         </ul>
-                        <div className="flex items-center justify-between mt-4">
-                            <div>
+                        <div className="items-center justify-between mt-4">
+                            <div className="mb-2">
                                 <span className="text-2xl font-bold">${pkg.price.toLocaleString()}</span>
                             </div>
                             <PaymentButton href={pkg.checkoutLink} label="Book Now" />
                         </div>
+
+                        <button
+                            onClick={() => setSelectedPackage(pkg)}
+                            className="mt-4 px-2 text-white py-2 hover:text-slate-600 transition"
+                        >
+                            LEARN MORE
+                        </button>
                         <p className="text-xs text-slate-300 mt-2">
                             *By clicking Book Now, you agree to our{" "}
                             <button 
@@ -172,6 +184,12 @@ export default function Services() {
                     </div>
             </div>
             <TermsOfService open={showTerms} onClose={() => setShowTerms(false)} />
+            <LearnMoreModal
+                open={!!selectedPackage}
+                onClose={() => setSelectedPackage(null)}
+                name={selectedPackage?.name}
+                details={selectedPackage?.details}
+            />
         </section>
     );
 }
