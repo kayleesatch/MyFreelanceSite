@@ -187,7 +187,8 @@ export default function Services() {
             <LearnMoreModal
                 open={!!selectedPackage}
                 onClose={() => setSelectedPackage(null)}
-                name={selectedPackage?.name}
+                nameo
+                ={selectedPackage?.name}
                 details={selectedPackage?.details}
             />
         </section>
